@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [cards, setCards] = useState([])
+
+  const intialCards = [
+    {color : 'red'},
+    {color : 'blue'},
+    {color : 'yellow'},
+    {color : 'orange'},
+    {color : 'green'}
+  ]
+
+  const shuffleCards = () => {
+    const shuffledCards = [... intialCards, ...intialCards]
+      .sort(() => Math.random() - 0.5)
+      .map((card) => ({ ...card, id: Math.random() }))
+
+    setCards(shuffledCards)
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <button onClick={shuffleCards}>Reset</button>
     </div>
   );
 }
