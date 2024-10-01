@@ -1,17 +1,19 @@
 
 import { useState } from 'react';
 import './App.css';
+import CardComponent from './components/CardComponent';
 
 function App() {
 
   const [cards, setCards] = useState([])
 
   const intialCards = [
-    {color : 'red'},
-    {color : 'blue'},
-    {color : 'yellow'},
-    {color : 'orange'},
-    {color : 'green'}
+    {'src' : '/images/blue.png'},
+    {'src' : '/images/green.png'},
+    {'src' : '/images/orange.png'},
+    {'src' : '/images/purple.png'},
+    {'src' : '/images/red.png'},
+    {'src' : '/images/yellow.png'}
   ]
 
   const shuffleCards = () => {
@@ -24,7 +26,9 @@ function App() {
 
   return (
     <div className="App">
-
+      <div className='card-grid'>
+        <CardComponent card={cards}/>
+      </div>
       <button onClick={shuffleCards}>Reset</button>
     </div>
   );
