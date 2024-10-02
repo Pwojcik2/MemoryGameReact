@@ -22,6 +22,8 @@ function App() {
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
 
+    setChoiceOne(null);
+    setChoiceTwo(null);
     setCards(shuffledCards);
   };
 
@@ -58,8 +60,14 @@ function App() {
     setChoiceTwo(null);
   };
 
+  //start game automatically
+  useEffect(() => {
+    shuffleCards();
+  }, []);
+
   return (
     <div className="App">
+      <h1>Memory Game</h1>
       <div className="card-grid">
         {cards.map((card) => (
           <CardComponent
