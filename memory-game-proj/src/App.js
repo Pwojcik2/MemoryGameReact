@@ -8,12 +8,12 @@ function App() {
   const [choiceTwo, setChoiceTwo] = useState(null);
 
   const intialCards = [
-    { src: "/images/blue.png" },
-    { src: "/images/green.png" },
-    { src: "/images/orange.png" },
-    { src: "/images/purple.png" },
-    { src: "/images/red.png" },
-    { src: "/images/yellow.png" },
+    { src: "/images/blue.png", matched: false },
+    { src: "/images/green.png", matched: false },
+    { src: "/images/orange.png", matched: false },
+    { src: "/images/purple.png", matched: false },
+    { src: "/images/red.png", matched: false },
+    { src: "/images/yellow.png", matched: false },
   ];
 
   //shuffle cards
@@ -34,7 +34,15 @@ function App() {
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       if (choiceOne.src === choiceTwo.src) {
-        console.log("MATCHED");
+        setCards((prevCards) => {
+          return prevCards.map((card) => {
+            if (card.src === choiceOne.src) {
+              return { ...card, matched: true };
+            } else {
+              return card;
+            }
+          });
+        });
         resetTurn();
       } else {
         console.log("NO MATCH");
