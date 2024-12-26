@@ -49,7 +49,7 @@ function App() {
       } else {
         setTimeout(() => {
           resetTurn();
-        }, 500);
+        }, 1000);
       }
     }
   }, [choiceOne, choiceTwo]);
