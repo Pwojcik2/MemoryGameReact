@@ -1,4 +1,5 @@
 import "./CardComponent.css";
+import Images from "../images/images";
 
 export default function CardComponent({ card, handleChoice, flipped }) {
   const handleClick = () => {
@@ -13,7 +14,7 @@ export default function CardComponent({ card, handleChoice, flipped }) {
           <img
             className="cover"
             onClick={handleClick}
-            src="\src\assets\cover.png"
+            src={Images.coverSquare}
             alt="cover"
           ></img>
         </div>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import CardComponent from "./components/CardComponent";
+import Images from "./images/images";
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -8,12 +9,12 @@ function App() {
   const [choiceTwo, setChoiceTwo] = useState(null);
 
   const intialCards = [
-    { src: "src/assets/blue.png", matched: false },
-    { src: "src/assets/green.png", matched: false },
-    { src: "src/assets/orange.png", matched: false },
-    { src: "src/assets/purple.png", matched: false },
-    { src: "src/assets/red.png", matched: false },
-    { src: "src/assets/yellow.png", matched: false },
+    { src: Images.blueSquare, matched: false },
+    { src: Images.greenSquare, matched: false },
+    { src: Images.orangeSquare, matched: false },
+    { src: Images.purpleSquare, matched: false },
+    { src: Images.redSquare, matched: false },
+    { src: Images.yellowSquare, matched: false },
   ];
 
   //shuffle cards
